@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kindling — Co-founder Matching</title>
+  <meta name="description" content="An entrepreneurship platform: build a tagged founder directory and find your top 3 co-founder matches.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#directory"><span class="flame">◆</span> Kindling</a>
+    <nav>
+      <a href="#directory" data-view="directory">Directory</a>
+      <a href="#join" data-view="join">Add profile</a>
+      <a href="#match" data-view="match">Find a match</a>
+      <a href="#admin" data-view="admin">Admin · Tags</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- DIRECTORY -->
+    <section id="view-directory" class="view">
+      <div class="hero">
+        <h1>Find the person who completes your startup.</h1>
+        <p>Every member is tagged so you can see who they are at a glance — no long bios required.</p>
+      </div>
+      <div class="toolbar">
+        <input id="dir-search" type="search" placeholder="Search names, skills, interests…">
+        <div id="dir-filters" class="chips"></div>
+      </div>
+      <p id="dir-count" class="muted"></p>
+      <div id="dir-grid" class="grid"></div>
+    </section>
+
+    <!-- JOIN -->
+    <section id="view-join" class="view" hidden>
+      <h2>Add a profile</h2>
+      <p class="muted">Basic info, interests, and highlights. Everything is saved to this platform's database.</p>
+      <form id="join-form" class="card form"></form>
+    </section>
+
+    <!-- MATCH -->
+    <section id="view-match" class="view" hidden>
+      <h2>Find your top 3 matches</h2>
+      <p class="muted">Tell us who you are and who you're looking for. We rank everyone in the database and show the three best fits, with the reasons.</p>
+      <form id="match-form" class="card form"></form>
+      <div id="match-results"></div>
+    </section>
+
+    <!-- ADMIN -->
+    <section id="view-admin" class="view" hidden>
+      <h2>Admin · tag members</h2>
+      <p class="muted">Back-office view. Click a tag to toggle it; add custom highlight tags so a profile reads at a glance.</p>
+      <div class="admin-actions">
+        <button id="btn-export" class="btn ghost">Export database (JSON)</button>
+        <label class="btn ghost">Import JSON<input id="file-import" type="file" accept="application/json" hidden></label>
+        <button id="btn-reset" class="btn ghost danger">Reset to sample data</button>
+      </div>
+      <div id="admin-table"></div>
+    </section>
+  </main>
+
+  <dialog id="profile-dialog"><div id="profile-body"></div></dialog>
+
+  <footer class="foot">Kindling prototype · data stored in your browser · profiles marked “Sample” are fictional demo data</footer>
+
+  <script src="js/seed.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/match.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
